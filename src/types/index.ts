@@ -6,5 +6,7 @@ export interface Post {
     thumbnail: string;
     title: string;
     url: string;
+    permalink: string;
   };
 }
+export type PostTypes = 'hot' | 'new' | 'rising' | 'top';

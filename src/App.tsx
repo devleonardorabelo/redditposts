@@ -1,15 +1,15 @@
 import React from 'react';
-import {Image, View} from 'react-native';
 import {
   BottomTabNavigationOptions,
   createBottomTabNavigator,
 } from '@react-navigation/bottom-tabs';
-import {NavigationContainer, useIsFocused} from '@react-navigation/native';
+import {NavigationContainer} from '@react-navigation/native';
 
-import New from './screens/New';
-import Top from './screens/Top';
-import Popular from './screens/Popular';
-import Hot from './screens/Hot';
+import New from './screens/views/New';
+import Top from './screens/views/Top';
+import Popular from './screens/views/Popular';
+import Hot from './screens/views/Hot';
+
 import {Icon} from './components';
 import THEME from './theme';
 import IMAGES from './assets';

@@ -7,7 +7,7 @@ type Props = {
   onRefresh: () => void;
   refreshing: boolean;
 };
-const Loading = ({title = 'Carregando...', onRefresh, refreshing}: Props) => {
+const Loading = ({title = 'Loading...', onRefresh, refreshing}: Props) => {
   return (
     <RefreshControl
       refreshing={refreshing}

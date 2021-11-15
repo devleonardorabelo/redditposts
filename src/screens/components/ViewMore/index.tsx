@@ -1,7 +1,7 @@
 import React from 'react';
 import {Image, View} from 'react-native';
-import {Text} from '..';
-import {Modal} from '../..';
+import {Text} from '../../../components/design';
+import {Modal} from '../../../components';
 import IMAGES from '../../../assets';
 import {Post} from '../../../types';
 import styles from './styles';

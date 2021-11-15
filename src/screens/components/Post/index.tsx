@@ -1,7 +1,7 @@
 import React from 'react';
 import {Image, Pressable, View} from 'react-native';
 import {GestureResponderEvent} from 'react-native-modal';
-import {Text} from '..';
+import {Text} from '../../../components/design';
 import IMAGES from '../../../assets';
 import {Post as PostType} from '../../../types';
 
