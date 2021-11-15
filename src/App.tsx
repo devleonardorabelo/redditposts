@@ -1,5 +1,5 @@
 import React from 'react';
-import {View} from 'react-native';
+import {Image, View} from 'react-native';
 import {
   BottomTabNavigationOptions,
   createBottomTabNavigator,
@@ -10,8 +10,9 @@ import New from './screens/New';
 import Top from './screens/Top';
 import Popular from './screens/Popular';
 import Hot from './screens/Hot';
-import {Text} from './components';
-import THEME from './THEME';
+import {Icon} from './components';
+import THEME from './theme';
+import IMAGES from './assets';
 
 const Tab = createBottomTabNavigator();
 
@@ -23,7 +24,7 @@ const screenOptions: BottomTabNavigationOptions = {
     borderTopColor: THEME.backSecondary,
   },
   tabBarLabelStyle: {
-    fontSize: 1,
+    display: 'none',
   },
 };
 
@@ -37,7 +38,7 @@ const App: React.FC = () => {
           name="New"
           component={New}
           options={{
-            tabBarIcon: () => <Text>1</Text>,
+            tabBarIcon: () => <Icon source={IMAGES.new} />,
             ...screenOptions,
           }}
         />
@@ -45,7 +46,7 @@ const App: React.FC = () => {
           name="Top"
           component={Top}
           options={{
-            tabBarIcon: () => <Text>1</Text>,
+            tabBarIcon: () => <Icon source={IMAGES.top} />,
             ...screenOptions,
           }}
         />
@@ -53,7 +54,7 @@ const App: React.FC = () => {
           name="Popular"
           component={Popular}
           options={{
-            tabBarIcon: () => <Text>1</Text>,
+            tabBarIcon: () => <Icon source={IMAGES.popular} />,
             ...screenOptions,
           }}
         />
@@ -61,7 +62,7 @@ const App: React.FC = () => {
           name="Hot"
           component={Hot}
           options={{
-            tabBarIcon: () => <Text>1</Text>,
+            tabBarIcon: () => <Icon source={IMAGES.hot} />,
             ...screenOptions,
           }}
         />
