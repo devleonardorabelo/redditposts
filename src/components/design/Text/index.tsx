@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text as T} from 'react-native';
 import styles from './styles';
 type Props = {
-  children: string;
+  children: any;
   type?: 'h1' | 'h2' | 'p';
 };
 const Text = ({children, type = 'p'}: Props) => {

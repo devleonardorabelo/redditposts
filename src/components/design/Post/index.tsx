@@ -1,5 +1,6 @@
 import React from 'react';
-import {Image, View} from 'react-native';
+import {Image, Pressable, View} from 'react-native';
+import {GestureResponderEvent} from 'react-native-modal';
 import {Text} from '..';
 import IMAGES from '../../../assets';
 import {Post as PostType} from '../../../types';
@@ -7,10 +8,11 @@ import {Post as PostType} from '../../../types';
 import styles from './styles';
 type Props = {
   post: PostType;
+  onPress?: (event: GestureResponderEvent) => void;
 };
-const Post = ({post}: Props) => {
+const Post = ({post, onPress = e => e}: Props) => {
   return (
-    <View style={styles.container}>
+    <Pressable style={styles.container} onPress={onPress}>
       {post.data.thumbnail.length > 5 && (
         <Image style={styles.image} source={{uri: post.data.thumbnail}} />
       )}
@@ -31,7 +33,7 @@ const Post = ({post}: Props) => {
           </View>
         </View>
       </View>
-    </View>
+    </Pressable>
   );
 };
 

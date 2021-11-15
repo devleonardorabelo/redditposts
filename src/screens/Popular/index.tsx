@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
-import {FlatList, RefreshControl, View} from 'react-native';
-import {Page, Post, Text} from '../../components';
+import {FlatList, View} from 'react-native';
+import {Loading, Page, Post, Text} from '../../components';
 import {useReddit} from '../../context';
 
 const Popular = () => {
@@ -15,11 +15,9 @@ const Popular = () => {
       </View>
       <FlatList
         refreshControl={
-          <RefreshControl
-            refreshing={loading}
-            onRefresh={() => loadPosts('rising')}
-          />
+          <Loading onRefresh={() => loadPosts('rising')} refreshing={loading} />
         }
+        refreshing={loading}
         data={popularPosts}
         keyExtractor={e => e.data.url}
         renderItem={({item}) => <Post post={item} />}
