@@ -1,13 +1,17 @@
 import {Dimensions, StyleSheet} from 'react-native';
 import THEME from '../../../theme';
 
-const {height, width} = Dimensions.get('screen');
-
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     backgroundColor: THEME.backPrimary,
-    height,
-    width,
+  },
+  content: {
+    padding: 16,
+  },
+  keyboardContainer: {
+    flex: 1,
+    backgroundColor: THEME.backPrimary,
   },
 });
 export default styles;

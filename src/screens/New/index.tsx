@@ -1,11 +1,14 @@
 import React from 'react';
-import {View} from 'react-native';
+import {TextInput} from 'react-native';
 import {Page, Text} from '../../components';
+import Post from './components/Post';
 
 const New = () => {
   return (
     <Page>
-      <Text>1</Text>
+      <Post />
+      <Post />
+      <Post />
     </Page>
   );
 };

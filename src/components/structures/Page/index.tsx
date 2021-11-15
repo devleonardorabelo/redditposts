@@ -1,16 +1,27 @@
-import React from 'react';
-import {ScrollView, View, SafeAreaView, Text} from 'react-native';
+import React, {useRef} from 'react';
+import {
+  ScrollView,
+  SafeAreaView,
+  Platform,
+  KeyboardAvoidingView,
+} from 'react-native';
 import styles from './styles';
 type Props = {
   children: React.ReactNode;
 };
 const Page = ({children}: Props) => {
+  const scrollRef: any = useRef(null);
   return (
-    <View style={styles.container}>
-      <SafeAreaView>
-        <ScrollView>{children}</ScrollView>
-      </SafeAreaView>
-    </View>
+    <SafeAreaView style={styles.container}>
+      <KeyboardAvoidingView
+        style={styles.keyboardContainer}
+        keyboardVerticalOffset={8}
+        behavior={Platform.OS == 'ios' ? 'padding' : 'height'}>
+        <ScrollView ref={scrollRef} style={styles.content}>
+          {children}
+        </ScrollView>
+      </KeyboardAvoidingView>
+    </SafeAreaView>
   );
 };
 
