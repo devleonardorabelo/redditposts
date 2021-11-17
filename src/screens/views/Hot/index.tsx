@@ -3,19 +3,8 @@ import {useReddit} from '../../../context';
 import {Content} from '../../components';
 
 const Hot = () => {
-  const {loadPosts, loading, hotPosts} = useReddit();
-  useEffect(() => {
-    loadPosts('hot');
-  }, []);
-  return (
-    <Content
-      postType="hot"
-      title="Hot"
-      posts={hotPosts}
-      loadPosts={() => loadPosts('hot')}
-      loading={loading}
-    />
-  );
+  const {hotPosts} = useReddit();
+  return <Content postType="hot" title="Hot" posts={hotPosts} />;
 };
 
 export default Hot;

@@ -1,18 +1,20 @@
-import React, {useState} from 'react';
+import React, {useEffect} from 'react';
 import {FlatList, View} from 'react-native';
 
-import {Loading, Modal, Page, Text} from '../../../components';
+import {Loading, Page, Text} from '../../../components';
+import {useReddit} from '../../../context';
 import {Post as PostData, PostTypes} from '../../../types';
 import {Post, ViewMore} from '../../components';
 type Props = {
   title: string;
   postType: PostTypes;
   posts: PostData[];
-  loading: boolean;
-  loadPosts: () => void;
 };
-const Content = ({postType, title, loadPosts, loading, posts}: Props) => {
-  const [showPost, setShowPost] = useState<PostData | null>(null);
+const Content = ({postType, title, posts}: Props) => {
+  const {loadPosts, loading, selectPost, selectedPost} = useReddit();
+  useEffect(() => {
+    loadPosts(postType);
+  }, [postType]);
   return (
     <>
       <Page>
@@ -21,17 +23,20 @@ const Content = ({postType, title, loadPosts, loading, posts}: Props) => {
         </View>
         <FlatList
           refreshControl={
-            <Loading onRefresh={loadPosts} refreshing={loading} />
+            <Loading
+              onRefresh={() => loadPosts(postType)}
+              refreshing={loading}
+            />
           }
           refreshing={loading}
           data={posts}
           keyExtractor={e => e.data.url}
           renderItem={({item}) => (
-            <Post post={item} onPress={() => setShowPost(item)} />
+            <Post post={item} onPress={() => selectPost(item)} />
           )}
         />
       </Page>
-      <ViewMore post={showPost} onClose={() => setShowPost(null)} />
+      <ViewMore post={selectedPost} onClose={() => selectPost(null)} />
     </>
   );
 };

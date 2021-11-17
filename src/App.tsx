@@ -29,42 +29,6 @@ const screenOptions: BottomTabNavigationOptions = {
   },
 };
 
-const teste = {
-  history: [
-    {key: 'New-MnWD9-4TLhHpDjcrFvBP0', type: 'route'},
-    {key: 'Popular-4QXmpAMsR1Dib_w1N8XsD', type: 'route'},
-  ],
-  index: 2,
-  key: 'tab-zaoiPWp-9QSwHfcgr4a9c',
-  routeNames: ['New', 'Top', 'Popular', 'Hot'],
-  routes: [
-    {key: 'New-MnWD9-4TLhHpDjcrFvBP0', name: 'New', params: undefined},
-    {key: 'Top-45j-vUIiDnHD0mJLi5gJC', name: 'Top', params: undefined},
-    {key: 'Popular-4QXmpAMsR1Dib_w1N8XsD', name: 'Popular', params: undefined},
-    {key: 'Hot-tLAsv0-ko7Bm1ggJLEgnN', name: 'Hot', params: undefined},
-  ],
-  stale: false,
-  type: 'tab',
-};
-
-const teste2 = {
-  history: [
-    {key: 'New-MnWD9-4TLhHpDjcrFvBP0', type: 'route'},
-    {key: 'Hot-tLAsv0-ko7Bm1ggJLEgnN', type: 'route'},
-  ],
-  index: 3,
-  key: 'tab-zaoiPWp-9QSwHfcgr4a9c',
-  routeNames: ['New', 'Top', 'Popular', 'Hot'],
-  routes: [
-    {key: 'New-MnWD9-4TLhHpDjcrFvBP0', name: 'New', params: undefined},
-    {key: 'Top-45j-vUIiDnHD0mJLi5gJC', name: 'Top', params: undefined},
-    {key: 'Popular-4QXmpAMsR1Dib_w1N8XsD', name: 'Popular', params: undefined},
-    {key: 'Hot-tLAsv0-ko7Bm1ggJLEgnN', name: 'Hot', params: undefined},
-  ],
-  stale: false,
-  type: 'tab',
-};
-
 const App: React.FC = () => {
   return (
     <NavigationContainer>

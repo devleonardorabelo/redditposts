@@ -9,6 +9,8 @@ interface RedditContextData {
   hotPosts: Post[];
   loadPosts: (type: PostTypes) => void;
   loading: boolean;
+  selectedPost: Post | null;
+  selectPost: (post: Post | null) => void;
 }
 
 export const RedditContext = createContext<RedditContextData>(
@@ -24,6 +26,7 @@ const RedditProvider = ({children}: ContextProps) => {
   const [topPosts, setTopPosts] = useState<Post[]>([]);
   const [popularPosts, setPopularPosts] = useState<Post[]>([]);
   const [hotPosts, setHotPosts] = useState<Post[]>([]);
+  const [selectedPost, setSelectedPost] = useState<Post | null>(null);
 
   const [loading, setLoading] = useState(true);
 
@@ -44,6 +47,11 @@ const RedditProvider = ({children}: ContextProps) => {
     }
   }, []);
 
+  const selectPost = useCallback(
+    (post: Post | null) => setSelectedPost(post),
+    [],
+  );
+
   const loadPosts = useCallback(async (type: PostTypes) => {
     setLoading(true);
 
@@ -54,7 +62,6 @@ const RedditProvider = ({children}: ContextProps) => {
     if (response.data?.error) {
       return;
     } else {
-      console.log(response.data.children[0].data);
       handlePostTypes(type, response.data.children);
     }
 
@@ -63,7 +70,16 @@ const RedditProvider = ({children}: ContextProps) => {
 
   return (
     <RedditContext.Provider
-      value={{newPosts, topPosts, popularPosts, hotPosts, loadPosts, loading}}>
+      value={{
+        newPosts,
+        topPosts,
+        popularPosts,
+        hotPosts,
+        loadPosts,
+        loading,
+        selectPost,
+        selectedPost,
+      }}>
       {children}
     </RedditContext.Provider>
   );
